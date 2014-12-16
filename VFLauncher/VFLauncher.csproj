@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED23643F-2A39-4F04-B3E1-BD5E74C09A5C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VFLauncher</RootNamespace>
+    <AssemblyName>VFLauncher</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>FireBear.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Libs\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChatChannel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatChannel.Designer.cs">
+      <DependentUpon>ChatChannel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatForm.Designer.cs">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\ClientConfig.cs" />
+    <Compile Include="Configuration\Config.cs" />
+    <Compile Include="ConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmForm.Designer.cs">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crypt\Cryptor.cs" />
+    <Compile Include="Crypt\PacketCrypt.cs" />
+    <Compile Include="Crypt\SARC4.cs" />
+    <Compile Include="Data\Account.cs" />
+    <Compile Include="Data\DataType.cs" />
+    <Compile Include="Data\Interfaces\IRecvPacket.cs" />
+    <Compile Include="Data\Interfaces\ISendPacket.cs" />
+    <Compile Include="Data\NetMessage\ClientMessages.cs" />
+    <Compile Include="Data\NetMessage\ServerMessages.cs" />
+    <Compile Include="Data\UserInfo.cs" />
+    <Compile Include="InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Interfaces\IConnection.cs" />
+    <Compile Include="Network\NetClient.cs" />
+    <Compile Include="Network\OpcodeAttribute.cs" />
+    <Compile Include="Network\PacketReader.cs" />
+    <Compile Include="Network\PacketWriter.cs" />
+    <Compile Include="Packets\PacketHandler\AccountHandler.cs" />
+    <Compile Include="Packets\PacketHandler\AuthenticationHandler.cs" />
+    <Compile Include="Packets\PacketHandler\ChatHandler.cs" />
+    <Compile Include="Packets\PacketManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\CustomTexBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utilities\EmoticonRender.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Utilities\HexEncoding.cs" />
+    <Compile Include="Utilities\TcpClientWithTimeout.cs" />
+    <EmbeddedResource Include="ChatChannel.resx">
+      <DependentUpon>ChatChannel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatForm.resx">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmForm.resx">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FireBear.ico" />
+    <Content Include="Resources\AddFriend_Hover.png" />
+    <Content Include="Resources\AddFriend_Nomal.png" />
+    <None Include="Resources\WoW_Channel_Nomal.png" />
+    <None Include="Resources\WoW_Channel_Hover.png" />
+    <None Include="Resources\Aion_Channel_Hover.png" />
+    <None Include="Resources\Aion_Channel_Nomal.png" />
+    <Content Include="Resources\AionBG_01.png" />
+    <None Include="Resources\Btn_Active_Click.png" />
+    <None Include="Resources\Btn_Active_Hover.png" />
+    <None Include="Resources\Btn_Active_Nomal.png" />
+    <Content Include="Resources\Btn_Blue_Click.png" />
+    <Content Include="Resources\Btn_Blue_Nomal.png" />
+    <None Include="Resources\Btn_Chat_Hover.png" />
+    <None Include="Resources\Btn_Chat_Nomal.png" />
+    <Content Include="Resources\Btn_Gray_Big_Click.png" />
+    <Content Include="Resources\Btn_Gray_Big_Nomal.png" />
+    <Content Include="Resources\Btn_Gray_Click.png" />
+    <Content Include="Resources\Btn_Gray_Nomal.png" />
+    <None Include="Resources\Btn_MActive_Click.png" />
+    <None Include="Resources\Btn_MActive_Hover.png" />
+    <None Include="Resources\Btn_MActive_Nomal.png" />
+    <None Include="Resources\Btn_Start_Click.png" />
+    <None Include="Resources\Btn_Start_Hover.png" />
+    <None Include="Resources\Btn_Start_Normal.png" />
+    <None Include="Resources\Btn_Update_Click.png" />
+    <None Include="Resources\Btn_Update_Hover.png" />
+    <None Include="Resources\Btn_Update_Normal.png" />
+    <Content Include="Resources\cb_checked.png" />
+    <Content Include="Resources\cb_checked_hover.png" />
+    <Content Include="Resources\cb_nomal.png" />
+    <Content Include="Resources\cb_nomal_hover.png" />
+    <None Include="Resources\ChatBG.png" />
+    <None Include="Resources\ChatView.png" />
+    <None Include="Resources\ChatChannel.png" />
+    <Content Include="Resources\chat_offline.png" />
+    <Content Include="Resources\chat_online.png" />
+    <None Include="Resources\ConfirmForm.png" />
+    <None Include="Resources\emo_big_smile.png" />
+    <Content Include="Resources\FireBear.png" />
+    <Content Include="Resources\AionIcon_01_Click.png" />
+    <Content Include="Resources\AionIcon_01_Hover.png" />
+    <Content Include="Resources\AionIcon_01_Nomal.png" />
+    <Content Include="Resources\Btn_Close.png" />
+    <None Include="Resources\Btn_Close_.png" />
+    <Content Include="Resources\Btn_Max.png" />
+    <None Include="Resources\Btn_Max_.png" />
+    <Content Include="Resources\Btn_Min.png" />
+    <None Include="Resources\Btn_Min_.png" />
+    <None Include="Resources\icon_online.png" />
+    <Content Include="Resources\LeftBar.png" />
+    <Content Include="Resources\LoginForm.png" />
+    <Content Include="Resources\Tb_Click.png" />
+    <Content Include="Resources\Tb_Nomal.png" />
+    <Content Include="Resources\TopBar.png" />
+    <None Include="Resources\Top_FireBear.png" />
+    <None Include="Resources\Top_VFireNetwork.png" />
+    <Content Include="Resources\VFireNetwork.png" />
+    <Content Include="Resources\WoWBG_01.png" />
+    <Content Include="Resources\WoWIcon_01_Click.png" />
+    <Content Include="Resources\WoWIcon_01_Hover.png" />
+    <Content Include="Resources\WoWIcon_01_Nomal.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
